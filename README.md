@@ -5,25 +5,26 @@ In 2022, the [Tennessee Investment in Student Achievement (TISA) Act](https://pu
 
 TACIR publishes the data used to generate its annual fiscal capacity calculation.  The data used in TACIR’s regression analysis which underlies the fiscal capacity estimates are three-year averages. This means that the data provided are not directly comparable to a published statistic, but rather must be calculated.  This repository will provide scripts to assemble the underlying data used in TACIR’s fiscal capacity calculation.  As an initial step, the data provided by TACIR will be imported to serve as a comparative for the later assembled data.
 
+## TACIR's Data
 The initial commit to this repository are two scripts.  The first, “1_TACIR_fiscal_capacity_data_download.R”, rather obviously downloads the TACIR data for the last 10 fiscal years.  The data is part of documents provided related to meetings of TACIR meetings where the TACIR board approves the fiscal capacity estimates.  The second script,“2_TACIR_fiscal_capacity_data_import.R” assembles the last downloaded data into a data frame.  The data are distributed in pdf files.  To import the data, the [tablulapdf package](https://docs.ropensci.org/tabulapdf/) is used. Tabulapdf depends on the rJava package, which in turn, depends on the Java SDK.
 
 The script produces a data frame with the following variable:
-county - county name
-rev_pp - own-source revenue per pupil
-prop_pp - property per pupil 
-sales_pp - taxable sales per pupil
-pci - per capita income
-res_farm_assess_ratio_pct -  Ratio of Residential & Farm Assessment to Total Assessment
-adm_pop_ratio_pct - Ratio of Average Daily Membership to Population
-fc_pp - per pupil fiscal capacity
-adm - average daily membership
-tot_fc - total fiscal capacity
-fc_index - fiscal capacity index
-prior_fy_fc_index_pct - prior year fiscal capacity index
-fy - fiscal year
+* county - county name
+* rev_pp - own-source revenue per pupil
+* prop_pp - property per pupil 
+* sales_pp - taxable sales per pupil
+* pci - per capita income
+* res_farm_assess_ratio_pct -  Ratio of Residential & Farm Assessment to Total Assessment
+* adm_pop_ratio_pct - Ratio of Average Daily Membership to Population
+* fc_pp - per pupil fiscal capacity
+* adm - average daily membership
+* tot_fc - total fiscal capacity
+* fc_index - fiscal capacity index
+* prior_fy_fc_index_pct - prior year fiscal capacityfy - fiscal year
 
 The script also provides a dataframe “check” that compares the summary statistics provided in the TACIR data to summary statistics calculated from the imported data.  The max and min statistics match.  The summary statistics “Statewide” included in the TACIR data does not appear to be the mean of the imported data.
 
 The script also calculates regression parameters for TACIR’s fiscal capacity model using the imported data.  The calculated regression parameters for fiscal year 2024 can be compared to TACIR’s calculation.  See page 10 of the TACIR report cited above for the regression results.  It is worth noting that the imported data are rounded to 4 digits, so the self-calculated parameters will not match precisely.  In part, that is part of my interest in this project.  Without accurate underlying data it is not possible to verify the calculations or perform alternate statisitical modeling of fiscal capacity. 
 
-Next steps: Many of the variables used in TACIR’s fiscal capacity model are expressed in terms of pupil.  As such, the most important variable to calculate with be average daily membership.
+## TN Department of Education - Average Daily Membership (ADM)
+Many of the variables used in TACIR’s fiscal capacity model are expressed in terms of pupils.  As such, the most important variable to calculate is average daily membership.  Two scripts are supplied to calcuated ADM. The script "3_download_TN_Dept_Ed_data.R" will download Tennessee Department of Education Annual Statistical Reports in Excel format.  The script "4_calculate_ADM.R" processes the files and returns the a calculation of ADM using TACIR's three-year average methodology,
