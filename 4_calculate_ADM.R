@@ -2,24 +2,6 @@ library(readxl)
 library(tidyverse)
 library(zoo)
 
-# More Annual Statistical Report years
-# https://web.archive.org/web/20120417211140/http://www.tn.gov/education/reports_data.shtml
-
-# Reports of TN Public Charter School Commission
-# https://www.tn.gov/content/dam/tn/tn-public-charter-school-commission/documents/annual-reporting/annual-authorizer-report/2021-22%20TPCSC%20Annual%20Authorizer%20Report%20FINAL%20(updated6.15).pdf
-# https://www.tn.gov/content/dam/tn/tn-public-charter-school-commission/documents/annual-reporting/annual-authorizer-report/2022-23%20TPCSC%20Annual%20Authorizer%20Report_2024.04.24.pdf
-# https://www.tn.gov/content/dam/tn/tn-public-charter-school-commission/documents/annual-reporting/annual-authorizer-report/2023-24%20TPCSC%20Annual%20Authorizer%20Report_updated1.10.25_BF.pdf
-
-# Data for Charter Schools Authorized by State Board of Education
-# Charter School Report School Years 2017 - 2020
-# https://www.tn.gov/content/dam/tn/education/documents/2019%20Charter%20Report%20final.pdf
-# https://www.tn.gov/content/dam/tn/education/documents/Annual_Charter_Report_for_SY_2018-19_FINAL.pdf
-# https://www.tn.gov/content/dam/tn/education/documents/Annual_Charter_Report_for_SY2019-20.pdf
-# https://www.tn.gov/content/dam/tn/education/documents/Annual_Charter_Report_for_SY2020-21.pdf
-
-# Archive of Charter School Reports
-# https://digitalcommons.memphis.edu/govpubs-tn-dept-education-charter-schools-annual-report/2/
-
 more_names <-  c("id", "name", "adm_k", "adm_1st", "adm_2nd", "adm_3rd",
                  "adm_4th", "adm_5th", "adm_6th", "adm_7th", "adm_8th",
                  "adm_9th", "adm_10th", "adm_11th", "adm_12th","adm_special", 
