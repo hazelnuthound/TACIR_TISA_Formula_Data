@@ -20,7 +20,8 @@ The script produces a data frame with the following variable:
 * adm - average daily membership
 * tot_fc - total fiscal capacity
 * fc_index - fiscal capacity index
-* prior_fy_fc_index_pct - prior year fiscal capacityfy - fiscal year
+* prior_fy_fc_index_pct - prior year fiscal capacity
+* fy - fiscal year
 
 The script also provides a dataframe “check” that compares the summary statistics provided in the TACIR data to summary statistics calculated from the imported data.  The max and min statistics match.  The summary statistics “Statewide” included in the TACIR data does not appear to be the mean of the imported data.
 
